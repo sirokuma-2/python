@@ -5,8 +5,10 @@ from django.core.paginator import Paginator
 from blog.forms import ArticleForm#新規記事投稿
 from blog.forms import CommentForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import JsonResponse
+
 # Create your views here.
 
 
@@ -48,6 +50,7 @@ def article(request,pk):
 
 
 # #新規記事投稿
+@login_required
 def create_article(request):
     
     context = {}
