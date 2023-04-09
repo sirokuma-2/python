@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from blog.models import Article,Comment,Tag
 from django.core.paginator import Paginator
+from blog.forms import ArticleForm#新規記事投稿
 from blog.forms import CommentForm
+from django.contrib import messages
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import JsonResponse
 # Create your views here.
@@ -43,6 +45,25 @@ def article(request,pk):
         'comments':comments,
     }
     return render(request,'blog/article.html',context)
+
+
+# #新規記事投稿
+def create_article(request):
+    
+    context = {}
+    if request.method=='POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            article=form.save(commit=False)
+            article.save()
+            messages.success(request,'投稿完了')
+            return redirect('/')
+    return render(request,'blog/article_form.html',context)
+
+
+
+
+
 
 #逆参照　タグから記事を検索
 def tags(request,slug):

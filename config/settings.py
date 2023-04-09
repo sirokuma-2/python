@@ -110,12 +110,14 @@ else:
     # 開発環境
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.environ['DB_NAME'],
-            'USER': os.environ['DB_USERNAME'],
-            'PASSWORD': os.environ['DB_USERPASS'],
-            'HOST': '127.0.0.1',
-            'PORT': '3306',
+            'ENGINE': 'django.db.backends.sqlite3',#開発用　無料にするため
+            # 'ENGINE': 'django.db.backends.mysql',
+            'NAME': BASE_DIR / 'db.sqlite3',#開発用　無料にするため
+            # 'NAME': os.environ['DB_NAME'],
+            # 'USER': os.environ['DB_USERNAME'],
+            # 'PASSWORD': os.environ['DB_USERPASS'],
+            # 'HOST': '127.0.0.1',
+            # 'PORT': '3306',
         }
     }
 

@@ -71,7 +71,7 @@ class MypageView(LoginRequiredMixin,View):
             profile.user = request.user
             profile.save()#DBの更新
             messages.success(request,'登録完了')
-            print(context)
+            #print(context)
         return render(request,'mysite/mypage.html',self.context)
 
 #お問い合わせ

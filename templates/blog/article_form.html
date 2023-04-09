@@ -1,0 +1,41 @@
+{% extends 'mysite/base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+        <h3 class="pb-4 mb-4 font-italic border-bottom">
+            記事投稿
+        </h3>
+
+        <form class="row g-3" method="POST">
+            {% csrf_token %}
+            <div class="col-12">
+                <label class="form-label">title</label>
+                <input type="text" class="form-control" id="id_title" name="title" required>
+            </div>           
+            <div class="col-12">
+                <label class="form-label">text</label>
+                <textarea class = "form-control" name="text" required rows"4"></textarea>
+            </div>
+            <div class="col-12">
+                <label class="form-label">author</label>
+                <textarea class = "form-control" name="author" required rows"4"></textarea>
+            </div>
+
+
+            <div class="col-12">
+                <button type="submit" id="submit" class="btn btn-primary">送信</button>
+            </div>
+
+          </form>
+
+        </div>
+
+
+    </div>
+</main>
+
+
+{% endblock %}

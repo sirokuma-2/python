@@ -13,8 +13,10 @@
             
 
             {% if user.is_authenticated %}
-            <a class = "p-2 link-secondary" href="/logout/">ログアウト</a>
+
             <a class = "p-2 link-secondary" href="/mypage/">マイページ</a>
+            <a class = "p-2 link-secondary" href="blog/article_form">記事投稿</a> <!-- ここに記事投稿へのリンクを追加 -->
+            <a class = "p-2 link-secondary" href="/logout/">ログアウト</a>
             {% else %}
 
             <div>
