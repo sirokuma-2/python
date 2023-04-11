@@ -14,5 +14,5 @@ urlpatterns = [
     path('contact/',views.contact),
     #path('pay/',views.Payview.as_view()),
     path('ping/',views.ping),
-
+    
 ]
